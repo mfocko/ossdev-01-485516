@@ -1,0 +1,10 @@
+[package]
+name = "ossdev-01-485516"
+version = "0.1.0"
+authors = ["Matej Focko <matej.focko@outlook.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+text_io = "0.1.7"
