@@ -6,7 +6,7 @@ rust:
   - nightly
 
 install:
-  - rustup component add rustfmt-nightly
+  - rustup component add rustfmt-preview
 
 script:
   - cargo fmt -- --check --write-mode=diff
