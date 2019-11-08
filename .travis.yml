@@ -6,7 +6,7 @@ rust:
   - nightly
 
 before_install:
-  - (cargo install rustfmt-nightly || true)
+  - (cargo +nightly install rustfmt-nightly || true)
 
 script:
   - cargo fmt -- --check
