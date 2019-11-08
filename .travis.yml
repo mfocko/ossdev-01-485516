@@ -5,7 +5,7 @@ cache: cargo
 rust:
   - nightly
 
-before_install:
+before_script:
   - (cargo +nightly install rustfmt-nightly || true)
 
 script:
