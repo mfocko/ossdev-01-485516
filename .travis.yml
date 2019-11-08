@@ -6,7 +6,7 @@ rust:
   - nightly
 
 before_script:
-  - (cargo +nightly install rustfmt-nightly || true)
+  - rustup component add rustfmt-nightly
 
 script:
   - cargo fmt -- --check
