@@ -1,3 +1,5 @@
+#![crate_name = "ossdev_01_485516"]
+
 use std::io::{self, Write};
 #[macro_use]
 extern crate text_io;
@@ -10,7 +12,7 @@ extern crate text_io;
 ///
 /// # Returns
 /// `true` if `number` is a prime, `false` otherwise
-fn is_prime(number: u32) -> bool {
+pub fn is_prime(number: u32) -> bool {
     return match number {
         1 => false,
         2 => true,
@@ -39,7 +41,7 @@ fn is_prime(number: u32) -> bool {
 /// print_primes(1, 10)
 /// >>> 2 3 5 7 9
 /// ```
-fn print_primes(lower: u32, upper: u32) {
+pub fn print_primes(lower: u32, upper: u32) {
     println!();
     println!("Primes:");
 
