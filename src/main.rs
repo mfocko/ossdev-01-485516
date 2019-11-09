@@ -1,5 +1,6 @@
 use std::io::{self, Write};
-#[macro_use] extern crate text_io;
+#[macro_use]
+extern crate text_io;
 
 /// Checks if given number is prime.
 ///
