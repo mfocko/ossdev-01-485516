@@ -16,7 +16,7 @@ fn test_not_primes() {
 
 #[test]
 fn test_non_trivial_not_primes() {
-    vec![9059*6841, 2617*9949, 9887*9839, 4451 * 2, 4093 * 4099]
+    vec![9059 * 6841, 2617 * 9949, 9887 * 9839, 4451 * 2, 4093 * 4099]
         .iter()
         .for_each(|x| assert_ne!(is_prime(*x as u32), true))
 }
@@ -28,10 +28,13 @@ fn test_get_few_primes() {
 
 #[test]
 fn test_get_more_primes() {
-    assert_eq!(get_primes(1000, 1050), vec![1009, 1013, 1019, 1021, 1031, 1033, 1039, 1049])
+    assert_eq!(
+        get_primes(1000, 1050),
+        vec![1009, 1013, 1019, 1021, 1031, 1033, 1039, 1049]
+    )
 }
 
 #[test]
 fn test_get_no_primes() {
-    assert_eq!(get_primes(20, 22) ,vec![])
+    assert_eq!(get_primes(20, 22), vec![])
 }
