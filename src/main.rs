@@ -1,6 +1,8 @@
 #![crate_name = "ossdev_01_485516"]
 
 use std::io::{self, Write};
+use std::vec::Vec;
+
 #[macro_use]
 extern crate text_io;
 
@@ -24,12 +26,16 @@ pub fn is_prime(number: u32) -> bool {
     }
 }
 
-/// Prints out primes in given interval.
+/// Returns primes in a given interval.
 ///
 /// # Arguments
 ///
 /// * `lower: u32` - lower bound of an interval (inclusive)
 /// * `upper: u32` - upper bound of an interval (inclusive)
+///
+/// # Return
+///
+/// `Vec` of all primes in given interval
 ///
 /// # Example
 ///
@@ -37,7 +43,9 @@ pub fn is_prime(number: u32) -> bool {
 /// print_primes(1, 10)
 /// >>> 2 3 5 7 9
 /// ```
-pub fn print_primes(lower: u32, upper: u32) {
+pub fn get_primes(lower: u32, upper: u32) -> Vec<u32> {
+    (lower..=upper).filter(|x| is_prime(*x)).collect()
+    /*
     println!();
     println!("Primes:");
 
@@ -48,16 +56,33 @@ pub fn print_primes(lower: u32, upper: u32) {
     }
 
     println!();
+    */
+}
+
+/// Reads unsigned 4B number from input.
+///
+/// # Arguments
+///
+/// * `prompt: &str` - string that is printed as prompt
+///
+/// # Return
+///
+/// `u32` number read from input
+fn read_unsigned(prompt: &str) -> u32 {
+    print!("{}", prompt);
+    io::stdout().flush().unwrap();
+
+    let result: u32 = read!();
+
+    return result;
 }
 
 fn main() {
-    print!("Insert lower bound: ");
-    io::stdout().flush().unwrap();
-    let lower: u32 = read!();
+    let lower = read_unsigned("Insert lower bound: ");
+    let upper = read_unsigned("Insert upper bound: ");
+    let primes = get_primes(lower, upper);
 
-    print!("Insert upper bound: ");
-    io::stdout().flush().unwrap();
-    let upper: u32 = read!();
-
-    print_primes(lower, upper);
+    println!("\nPrimes:");
+    primes.iter().for_each(|x| print!("{} ", x));
+    println!();
 }
