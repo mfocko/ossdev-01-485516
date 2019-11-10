@@ -10,22 +10,18 @@ extern crate text_io;
 ///
 /// * `number: u32` - number to check
 ///
-/// # Returns
+/// # Return
+///
 /// `true` if `number` is a prime, `false` otherwise
 pub fn is_prime(number: u32) -> bool {
-    return match number {
-        1 => false,
+    match number {
+        num if num < 2 => false,
         2 => true,
-        number if number % 2 == 0 => false,
-        num => {
-            for div in (3..=(num / 2)).step_by(2) {
-                if num % div == 0 {
-                    return false;
-                }
-            }
-            return true;
-        }
-    };
+        num if num % 2 == 0 => false,
+        num => !(3..=(num as f32).sqrt() as u32)
+            .step_by(2)
+            .any(|div| num % div == 0),
+    }
 }
 
 /// Prints out primes in given interval.
