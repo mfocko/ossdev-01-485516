@@ -45,18 +45,6 @@ pub fn is_prime(number: u32) -> bool {
 /// ```
 pub fn get_primes(lower: u32, upper: u32) -> Vec<u32> {
     (lower..=upper).filter(|x| is_prime(*x)).collect()
-    /*
-    println!();
-    println!("Primes:");
-
-    for number in lower..=upper {
-        if is_prime(number) {
-            print!("{} ", number);
-        }
-    }
-
-    println!();
-    */
 }
 
 /// Reads unsigned 4B number from input.
